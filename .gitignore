@@ -39,4 +39,5 @@ wheels/
 *.out
 *.pid
 *.seed
-*.pid.lock 
+*.pid.lock
+uv.lock 
