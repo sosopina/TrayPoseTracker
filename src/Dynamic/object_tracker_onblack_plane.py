@@ -318,7 +318,7 @@ def main():
 
                     # Add current position text on ROI frame (relative to ROI)
                     cv2.putText(roi_frame, f"Position: ({center_x_roi}, {center_y_roi})",
-                               (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+                               (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2) # Reduced font scale to 0.5
 
                     # Draw trajectory on ROI frame
                     # Pass the roi_frame and the ROI's top-left corner coordinates
@@ -333,6 +333,16 @@ def main():
                  new_width = w_roi * 2
                  new_height = h_roi * 2
                  resized_roi_frame = cv2.resize(roi_frame, (new_width, new_height))
+
+                 # Display max coordinates on the resized ROI frame
+                 # max_coords_text = f"Max Coords: ({new_width - 1}, {new_height - 1})" # -1 because coordinates are 0-indexed
+                 max_coords_text = f"Max Coords: ({w_roi - 1}, {h_roi - 1})" # Display max coordinates of the original ROI, relative to its origin
+                 # Calculate vertical position for the bottom
+                 text_size = cv2.getTextSize(max_coords_text, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 2)[0]
+                 text_y = new_height - text_size[1] - 10 # Position 10 pixels from the bottom
+                 cv2.putText(resized_roi_frame, max_coords_text,
+                             (10, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2) # Use same reduced font scale
+
                  cv2.imshow("Selected ROI", resized_roi_frame)
 
             # Break loop on 'q' press
