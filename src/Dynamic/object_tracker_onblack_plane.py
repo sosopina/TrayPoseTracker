@@ -102,9 +102,7 @@ class ObjectTracker:
             self.smooth_trajectory.pop(0)
 
     def get_smooth_point(self, points):
-        """
-        Calculate smoothed point from recent trajectory points
-        """
+
         if not points:
             return None
         x = sum(p[0] for p in points) / len(points)
