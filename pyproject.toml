@@ -50,6 +50,8 @@ dependencies = [
 
     "wheel>=0.45.1",
 
+    "mediapipe>=0.10.0",
+
 ]
  
 [tool.uv.sources]
