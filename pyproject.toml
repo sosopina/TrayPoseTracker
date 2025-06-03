@@ -46,6 +46,10 @@ dependencies = [
 
     "tqdm>=4.67.1",
 
+    "PyOpenGL==3.1.7",
+
+    "PyOpenGL-accelerate==3.1.7",
+
     "wandb>=0.19.11",
 
     "wheel>=0.45.1",

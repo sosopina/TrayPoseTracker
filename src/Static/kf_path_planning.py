@@ -16,7 +16,7 @@ def smooth(s,x):
     return gaussian_filter(x,s,mode='constant')
 
 bgsub = cv.createBackgroundSubtractorMOG2(500, 60, True) 
-cap = cv.VideoCapture("src/Static/Dataset/ball_1.mp4")
+cap = cv.VideoCapture("src/Static/Dataset/ball_2.mp4")
 key = 0
 
 kernel = np.ones((3,3),np.uint8)
